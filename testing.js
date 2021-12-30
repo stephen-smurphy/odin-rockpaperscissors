@@ -26,5 +26,7 @@ function addContent() {
     container.appendChild(innerContainer);
 }
 
-var button = document.getElementById("button1");
-button.onclick = addContent;
+var btn = document.getElementById("button1");
+btn.addEventListener('click', function (e) {
+    e.target.style.background = 'blue';
+});
