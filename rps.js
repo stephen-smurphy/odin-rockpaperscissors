@@ -5,6 +5,7 @@ function computerSelection() {
 
 function userSelection() {
     let selection = prompt("Enter your selection")
+    selection = selection.toLowerCase()
     return(selection)
 }
 
@@ -25,13 +26,16 @@ function playGame(user, computer) {
             return "computer wins!"
         }
     }
-    else {
+    else if(user == "scissors") {
         if(computer == "paper") {
             return "user wins!"
         }
         else {
             return "computer wins!"
         }
+    }
+    else {
+        return "Error: Enter rock, paper or scissors"
     }
 }
 
