@@ -1,46 +1,72 @@
 function computerSelection() {
-    var selection = Array("rock", "paper", "scissors")
+    let selection = Array("rock", "paper", "scissors")
     return selection[Math.floor(Math.random() * 3)]
 }
 
-function userSelection() {
-    let selection = prompt("Enter your selection")
-    selection = selection.toLowerCase()
-    return(selection)
+function refresh() {
+    location.reload();
 }
 
 function playGame(user, computer) {
+    var playerScore = document.getElementById("playerScore");
+    var computerScore = document.getElementById("cpuScore");
+
+    var infoText = document.getElementById("infoText");
+
     if(user == "rock") {
         if(computer == "scissors") {
-            return "user wins!"
+            playerScore.textContent = parseInt(playerScore.textContent) + 1;
+            infoText.textContent = "You Win!";
+        }
+        else if(computer == "paper") {
+            computerScore.textContent = parseInt(computerScore.textContent) + 1;
+            infoText.textContent = "Computer Wins!";
         }
         else {
-            return "computer wins!"
+            infoText.textContent = "It's a draw!";
         }
     }
     else if(user == "paper") {
         if(computer == "rock") {
-            return "user wins!"
+            playerScore.textContent = parseInt(playerScore.textContent) + 1;
+            infoText.textContent = "You Win!";
+        }
+        else if(computer == "scissors") {
+            computerScore.textContent = parseInt(computerScore.textContent) + 1;
+            infoText.textContent = "Computer Wins!";
         }
         else {
-            return "computer wins!"
+            infoText.textContent = "It's a draw!";
         }
     }
     else if(user == "scissors") {
         if(computer == "paper") {
-            return "user wins!"
+            playerScore.textContent = parseInt(playerScore.textContent) + 1;
+            infoText.textContent = "You Win!";
+        }
+        else if(computer == "rock") {
+            computerScore.textContent = parseInt(computerScore.textContent) + 1;
+            infoText.textContent = "Computer Wins!";
         }
         else {
-            return "computer wins!"
+            infoText.textContent = "It's a draw!";
         }
-    }
-    else {
-        return "Error: Enter rock, paper or scissors"
     }
 }
 
-while(true) {
-    const cpu = computerSelection()
-    const user = userSelection()
-    console.log(playGame(user, cpu))
-}
+var resetButton = document.getElementById("resetButton");
+resetButton.onclick = refresh;
+
+var rockButton = document.getElementById("rockButton");
+var paperButton = document.getElementById("paperButton");
+var scissorsButton = document.getElementById("scissorsButton");
+
+rockButton.addEventListener("click", function() {
+    playGame("rock", computerSelection())
+});
+paperButton.addEventListener("click", function() {
+    playGame("paper", computerSelection())
+});
+scissorsButton.addEventListener("click", function() {
+    playGame("scissors", computerSelection())
+});

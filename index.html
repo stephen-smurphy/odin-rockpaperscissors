@@ -6,10 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script src="testing.js" defer></script>
+    <script src="rps.js" defer></script>
 </head>
 <body>
-    <div id="container"></div>
-    <button id="button1">Click Me</button>
+    <div id="container">
+        <div id="informationContainer">
+            <p id="infoText">Welcome to Rock Paper Scissors!</p>
+        </div>
+        <div id="scoreContainer">
+            <h2>Score</h2>
+            <p>CPU:</p>
+            <p id="cpuScore">0</p>
+
+            <p>Player:</p>
+            <p id = "playerScore">0</p>
+        </div>
+        <button id="rockButton">Rock</button>
+        <button id="paperButton">Paper</button>
+        <button id="scissorsButton">Scissors</button>
+        <br>
+        <br>
+        <button id="resetButton">Reset</button>
+    </div>
 </body>
 </html>
